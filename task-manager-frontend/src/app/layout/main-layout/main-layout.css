@@ -1,0 +1,30 @@
+.layout-container {
+  display: flex;
+  height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  background-color: #f5f7fb;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-content {
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .layout-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .main-content {
+    width: 100%;
+  }
+
+  .page-content {
+    padding: 16px;
+  }
+}

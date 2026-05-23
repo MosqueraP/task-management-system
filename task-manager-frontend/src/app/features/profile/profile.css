@@ -1,0 +1,50 @@
+.profile-page {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.profile-card {
+  background: white;
+  width: 100%;
+  max-width: 600px;
+  padding: 32px;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+}
+
+.profile-card h2 {
+  margin-bottom: 24px;
+  color: #0f172a;
+  text-align: center;
+}
+
+.profile-item {
+  display: flex;
+  margin-bottom: 18px;
+  gap: 10px;
+}
+
+.label {
+  font-weight: bold;
+  color: #334155;
+  min-width: 120px;
+}
+
+@media (max-width: 768px) {
+
+  .profile-page {
+    margin-top: 20px;
+    padding: 0 12px;
+  }
+
+  .profile-card {
+    padding: 24px;
+  }
+
+  .profile-item {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+}

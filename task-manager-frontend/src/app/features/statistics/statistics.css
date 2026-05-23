@@ -1,0 +1,96 @@
+.statistics-page h1 {
+  margin-bottom: 25px;
+  color: #0f172a;
+}
+
+.stats-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.stat-card,
+.summary-card {
+  background: white;
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+  text-align: center;
+}
+
+/* Tarjetas superiores */
+.stat-card h3 {
+  color: #475569;
+  font-size: 15px;
+  margin-bottom: 16px;
+}
+
+.stat-card p {
+  font-size: 34px;
+  font-weight: bold;
+  color: #2563eb;
+}
+.stat-card.total p {
+  color: #2563eb;
+}
+
+.stat-card.pending p {
+  color: #d97706;
+}
+
+.stat-card.completed p {
+  color: #16a34a;
+}
+
+/* Tarjeta resumen */
+.summary-card {
+  width: 32%;
+  margin: 0 auto;
+}
+
+.summary-card h2 {
+  margin-bottom: 20px;
+  color: #0f172a;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+  .stats-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-card {
+    width: 100%;
+  }
+
+  .stat-card {
+    text-align: center;
+  }
+
+  .stat-icon {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+
+  .stat-card.total p {
+    color: #2563eb;
+  }
+
+  .stat-card.pending p {
+    color: #d97706;
+  }
+
+  .stat-card.completed p {
+    color: #16a34a;
+  }
+
+}

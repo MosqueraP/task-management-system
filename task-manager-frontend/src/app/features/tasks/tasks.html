@@ -1,0 +1,175 @@
+<div class="tasks-page">
+
+  @if (successMessage) {
+
+    <div class="success-toast">
+      {{ successMessage }}
+    </div>
+  }
+
+  <div class="header">
+    <h1>Gestión de Tareas</h1>
+  </div>
+
+  <div class="tasks-header">
+    <button class="new-task-button" (click)="toggleForm()">
+      @if (showForm) {
+        Cancelar
+      } @else {
+        + Nueva tarea
+      }
+    </button>
+  </div>
+
+  @if (showForm) {
+
+    <div class="task-form">
+
+      <input
+        type="text"
+        placeholder="Título"
+        [(ngModel)]="newTask.title">
+
+      <input
+        type="text"
+        placeholder="Descripción"
+        [(ngModel)]="newTask.description">
+
+      <select [(ngModel)]="newTask.status">
+        <option value="PENDING">Pendiente</option>
+        <option value="COMPLETED">Completada</option>
+      </select>
+
+      @if (editingTaskId === null) {
+        <button (click)="createTask()">
+          Crear tarea
+        </button>
+      }
+
+      @if (editingTaskId !== null) {
+        <button
+          class="update-button"
+          (click)="updateTask()">
+          Actualizar tarea
+        </button>
+      }
+
+    </div>
+
+  }
+
+  <div class="table-wrapper">
+  <table class="tasks-table">
+
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Título</th>
+      <th>Descripción</th>
+      <th>Estado</th>
+      <th>Fecha creación</th>
+      <th>Acciones</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+      @for (task of paginatedTasks; track task.id) {
+
+        <tr>
+
+          <td>{{ task.id }}</td>
+
+          <td>{{ task.title }}</td>
+
+          <td>{{ task.description }}</td>
+
+          <td>
+
+            <span
+              class="status"
+              [class.completed]="task.status === 'COMPLETED'"
+              [class.pending]="task.status === 'PENDING'">
+
+              {{ task.status }}
+
+            </span>
+
+          </td>
+
+          <td>
+            {{ task.createdAt | date:'dd/MM/yyyy' }}
+          </td>
+
+          <td class="actions-column">
+
+            <button
+              class="edit-button"
+              (click)="editTask(task)">
+
+<!--              Editar-->
+              ✏️
+
+            </button>
+
+            <button
+              class="delete-button"
+              (click)="deleteTask(task.id)">
+
+<!--              Eliminar-->
+              🗑️
+            </button>
+
+          </td>
+
+        </tr>
+
+      }
+
+    </tbody>
+
+  </table>
+  </div>
+
+  <div class="pagination-container">
+
+    <div class="tasks-count">
+      {{ itemsCountText }}
+    </div>
+
+    <div class="pagination-buttons">
+
+      <button
+        (click)="changePage(currentPage - 1)"
+        [disabled]="currentPage === 1">
+
+        ←
+
+      </button>
+
+      @for (page of [].constructor(totalPages); track $index) {
+
+        <button
+          class="page-button"
+          [class.active]="currentPage === $index + 1"
+          (click)="changePage($index + 1)">
+
+          {{ $index + 1 }}
+
+        </button>
+
+      }
+
+      <button
+        (click)="changePage(currentPage + 1)"
+        [disabled]="currentPage === totalPages">
+
+        →
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
