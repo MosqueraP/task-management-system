@@ -7,7 +7,7 @@ Aplicación Full Stack para gestión de tareas desarrollada como prueba técnica
 ## Tecnologías utilizadas
 
 ### Backend
-- Java 21
+- Java 17
 - Spring Boot
 - PostgreSQL
 - Maven
@@ -56,11 +56,14 @@ CREATE DATABASE task_manager_db;
 
 ### Configurar las siguientes variables de entorno:
 
+```SQL
 - DB_URL=jdbc:postgresql://localhost:5432/task_manager_db
 - DB_USERNAME=postgres
 - DB_PASSWORD=your_password
+```
 
 ### Ejecutar Backend
+
 cd taskmanager
 mvn spring-boot:run
 

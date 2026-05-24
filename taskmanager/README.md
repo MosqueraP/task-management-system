@@ -4,7 +4,7 @@ Backend desarrollado con Java y Spring Boot para la gestión de tareas mediante 
 
 ## Tecnologías utilizadas
 
-- Java 21
+- Java 17
 - Spring Boot
 - PostgreSQL
 - Maven
@@ -56,3 +56,4 @@ GET /tasks
 POST /tasks
 PUT /tasks/{id}
 DELETE /tasks/{id}
+````
